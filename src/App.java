@@ -1,6 +1,8 @@
 import java.time.LocalDate;
 
+import domain.Bootcamp;
 import domain.Curso;
+import domain.Dev;
 import domain.Mentoria;
 
 public class App {
@@ -29,5 +31,30 @@ public class App {
 
         System.out.println(mentoria1.toString());
         System.out.println(mentoria2.toString());
+
+        Bootcamp bootcamp = new Bootcamp();
+        bootcamp.setNome("Bootcamp Java Developer");
+        bootcamp.setDescricao("Aprenda Java e se torne um desenvolvedor Java completo");
+        bootcamp.getConteudos().add(curso1);
+        bootcamp.getConteudos().add(mentoria1);
+
+        System.out.println("==========================");
+
+        Dev dev = new Dev();
+        dev.setNome("Gabriel");
+        dev.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos de " + dev.getNome() + ": " + dev.getConteudosInscritos());
+        dev.progredir();
+        System.out.println("Conteúdos Concluídos de " + dev.getNome() + ": " + dev.getConteudosConcluidos());
+
+        System.out.println("==========================");
+
+        Dev dev2 = new Dev();
+        dev2.setNome("Ana");
+        dev2.inscreverBootcamp(bootcamp);
+        System.out.println("Conteúdos Inscritos de " + dev2.getNome() + ": " + dev2.getConteudosInscritos());
+        dev2.progredir();
+        System.out.println("Conteúdos Concluídos de " + dev2.getNome() + ": " + dev2.getConteudosConcluidos());
+
     }
 }
